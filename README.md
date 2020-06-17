@@ -19,7 +19,7 @@ Tax Changer does the following:
 
 ## What the script does not
 
-The script doesn't clear caches or rebuild indexes. Please make sure, that your take care about these actions on your own. If run be command like or as CronJob, you can use the connection with `&&`for this purpose.
+The script doesn't clear caches or rebuild indexes. Please make sure, that your take care about these actions on your own. If run you want to run the complete processs on command line or as CronJob, you might use the connection-option `&&` to append more commands for this purpose.
 
 ### Example:
 ```bash
