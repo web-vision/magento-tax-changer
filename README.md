@@ -13,7 +13,7 @@ At the end of this year the taxes will change back to the original percentages.
 
 Tax Changer does the following: 
  
-* Adds new tax classes, rules and tax rates to the Magento System
+* Adds new tax classes, rules and tax rates to the Magento 1 or 2 system
 * The old tax rates don't get touched
 * All products will be changed, so the new tax rates will be applied according to the former setting.
 
