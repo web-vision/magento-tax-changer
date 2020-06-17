@@ -28,11 +28,11 @@ php tax.php && php bin/magento indexer:reindex && php bin/magento c:c
 
 You also might also need to check additional caches (eg. Redis, Varnish, CloudFlare) upfront.
 
-##Installation
+## Installation
 
 Download zip file and extract it in the Magento root.
 
-##Usage
+## Usage
 
 By default rates will be changed as specified in the script.
 
@@ -43,7 +43,7 @@ $taxes = [
 ];
 ```
 
-###Creating new taxes
+### Creating new taxes
 
 Go to the taxchanger directory and run:
 
@@ -59,14 +59,14 @@ Please adjust these settings according to your needs.
 
 Based on taxes specified in the script this will create new taxes and automatically assign them to the products.
 
-###Disable the new taxes
+### Disable the new taxes
 The following commmand will deactivate the new tax rates and apply the old tax rates to the products. The new tax rates will be kept in the system eg. for orders during the year-end closing. 
 
 ```bash
 php tax.php -b
 ```
 
-###Removing new taxes
+### Removing new taxes
 
 To remove the new taxes completely from the Magento system run:
 
@@ -78,17 +78,17 @@ This will remove all taxes created by taxchanger and assign old taxes to each pr
 
 **IMPORTANT**: All records are tracked in the *webvision_tax_changer* table. You must not change or remove records in this table.
 
-##Notes
+## Notes
 
 The script will not create tax rate titles for each store.
 
-##Warranty
+## Warranty
 This script comes without any warranty. Please use it at your own risk and make sure to take backups and test the script in a staging / development environment before you run it on a production system.
 
-##Donation / License
+## Donation / License
 This script ist "donate ware" under GPL3.0. We would be glad, if the script is useful for you, if you could donate something via paypal. If you need an invoice, please leave a comment in your donation.
 
-##PayPal Donation Button
+## PayPal Donation Button
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HDGBRLCFRTVPA)
 
