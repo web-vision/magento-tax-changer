@@ -73,7 +73,21 @@ $allCalculations = $connector->getAllCalculations($connection);
 $attributeId = $connector->getTaxAttributeId($connection);
 $error = false;
 
-if (in_array('-d', $argv)) {
+if (in_array('-b', $argv)) {
+    foreach ($connector->getMapperTableRows($connection) as $row) {
+        switch ($row['field_type']) {
+            case 'CLASS':
+                $connector->updateAttribute($connection, [$row['old_tax_id'], $attributeId, $row['new_tax_id']]);
+                break;
+            default:
+                break;
+        }
+    }
+
+    die('Products have been updated.');
+}
+
+if (in_array('-r', $argv)) {
     foreach ($connector->getMapperTableRows($connection) as $row) {
         switch ($row['field_type']) {
             case 'RATE':
@@ -96,7 +110,7 @@ if (in_array('-d', $argv)) {
 }
 
 if (count($connector->getMapperTableRows($connection))) {
-    die('Taxes created by tax changer still exist. Please remove them by adding "-d" argument.');
+    die('Taxes created by tax changer still exist. Please remove them by adding "-r" argument.');
 }
 
 foreach ($allCalculations as $row) {
