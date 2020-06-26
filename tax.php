@@ -48,6 +48,10 @@ function parseNullVal($value)
         return 'NULL';
     }
 
+    if (!is_numeric($value)) {
+        return "'" . $value . "'";
+    }
+
     return $value;
 }
 
@@ -65,6 +69,10 @@ function getRate($value, $taxes)
 $taxes = [
     19 => 16,
     7 => 5,
+];
+
+$countries = [
+    'DE'
 ];
 $taxClasses = [];
 $taxRates = [];
@@ -116,7 +124,7 @@ if (count($connector->getMapperTableRows($connection))) {
 foreach ($allCalculations as $row) {
     $rate = getRate($row['rate'], $taxes);
 
-    if ($rate) {
+    if ($rate && in_array($row['tax_country_id'], $countries)) {
         $taxValues = [
             parseNullVal(str_replace(array_keys($taxes), array_values($taxes), $row['class_name'])),
             parseNullVal($row['class_type'])

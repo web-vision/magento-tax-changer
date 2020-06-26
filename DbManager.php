@@ -11,11 +11,11 @@ class DbManager
     const SELECT_TAX_MAPPER = "SELECT * FROM webvision_tax_changer";
     const INSERT_TAX_MAPPER = "INSERT INTO webvision_tax_changer (new_tax_id, old_tax_id, field_type) VALUES (%s, %s, '%s')";
     const SELECT_LAST_TAX_CLASS_ID = "SELECT class_id FROM tax_class ORDER BY class_id DESC LIMIT 1";
-    const INSERT_TAX_CLASS = "INSERT INTO tax_class (class_name, class_type) VALUES ('%s', '%s')";
+    const INSERT_TAX_CLASS = "INSERT INTO tax_class (class_name, class_type) VALUES (%s, %s)";
     const SELECT_LAST_TAX_RATE_ID = "SELECT tax_calculation_rate_id FROM tax_calculation_rate ORDER BY tax_calculation_rate_id DESC LIMIT 1";
-    const INSERT_TAX_RATE = "INSERT INTO tax_calculation_rate (tax_country_id, tax_region_id, tax_postcode, code, rate, zip_is_range, zip_from, zip_to) VALUES ('%s', %s, '%s', '%s', %f, %s, %s, %s)";
+    const INSERT_TAX_RATE = "INSERT INTO tax_calculation_rate (tax_country_id, tax_region_id, tax_postcode, code, rate, zip_is_range, zip_from, zip_to) VALUES (%s, %s, %s, %s, %f, %s, %s, %s)";
     const SELECT_LAST_TAX_RULE_ID = "SELECT tax_calculation_rule_id FROM tax_calculation_rule ORDER BY tax_calculation_rule_id DESC LIMIT 1";
-    const INSERT_TAX_RULE = "INSERT INTO tax_calculation_rule (code, priority, position, calculate_subtotal) VALUES ('%s', %s, %s, %s)";
+    const INSERT_TAX_RULE = "INSERT INTO tax_calculation_rule (code, priority, position, calculate_subtotal) VALUES (%s, %s, %s, %s)";
     const SELECT_ALL_TAX_CALCULATIONS = "SELECT tax_calculation.*, tax_class.*, tax_calculation_rate.*, tax_calculation_rule.tax_calculation_rule_id, tax_calculation_rule.code as rule_code, 
                                                 tax_calculation_rule.priority, tax_calculation_rule.position, tax_calculation_rule.calculate_subtotal 
                                         FROM tax_calculation INNER JOIN tax_class ON tax_calculation.product_tax_class_id = tax_class.class_id INNER JOIN tax_calculation_rate 
