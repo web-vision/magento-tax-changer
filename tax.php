@@ -71,9 +71,6 @@ $taxes = [
     7 => 5,
 ];
 
-$countries = [
-    'DE'
-];
 $taxClasses = [];
 $taxRates = [];
 $taxRules = [];
@@ -124,7 +121,7 @@ if (count($connector->getMapperTableRows($connection))) {
 foreach ($allCalculations as $row) {
     $rate = getRate($row['rate'], $taxes);
 
-    if ($rate && in_array($row['tax_country_id'], $countries)) {
+    if ($rate) {
         $taxValues = [
             parseNullVal(str_replace(array_keys($taxes), array_values($taxes), $row['class_name'])),
             parseNullVal($row['class_type'])
